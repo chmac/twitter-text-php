@@ -22,7 +22,7 @@
  * @license    http://www.apache.org/licenses/LICENSE-2.0  Apache License v2.0
  * @package    Twitter
  */
-abstract class Twitter_Regex {
+class Twitter_Regex {
 
   /**
    * Expression to at sign characters
@@ -131,7 +131,7 @@ abstract class Twitter_Regex {
    *
    * @var  string  The regex pattern for a valid URL.
    */
-  protected static $REGEX_VALID_URL = null;
+  public static $REGEX_VALID_URL = null;
 
   /**
    * Contains the reply username pattern string.
@@ -140,7 +140,7 @@ abstract class Twitter_Regex {
    *
    * @var  string  The regex pattern for a reply username.
    */
-  protected static $REGEX_REPLY_USERNAME = null;
+  public static $REGEX_REPLY_USERNAME = null;
 
   /**
    * The tweet to be used in parsing.  This should be populated by the
@@ -155,7 +155,7 @@ abstract class Twitter_Regex {
    *
    * @param  string  $tweet  The tweet to parse.
    */
-  protected function __construct($tweet) {
+  public function __construct($tweet = null) {
     if (is_null(self::$REGEX_VALID_URL)) {
       self::$REGEX_VALID_URL = '/(?:'             # $1 Complete match (preg_match already matches everything.)
         . '('.self::REGEX_URL_CHARS_BEFORE.')'    # $2 Preceding character
